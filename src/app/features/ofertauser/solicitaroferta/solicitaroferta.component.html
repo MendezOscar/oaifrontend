@@ -1,0 +1,85 @@
+<app-navigationuser></app-navigationuser>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h3>Solicitar oferta</h3>
+            <form>
+                <div class="form-group">
+                    <label for="categoryName">Periodo</label>
+                    <input name="categoryName" type="text" class="form-control" id="categoryName"
+                        placeholder="Introduce " [(ngModel)]="periodo">
+                </div>
+                <div class="form-group">
+                    <label for="categoryName"> Año</label>
+                    <input name="categoryName" type="text" class="form-control" id="categoryName"
+                        placeholder="Introduce " [(ngModel)]="anio">
+                </div>
+                <button type="submit" class="btn btn-primary" (click)="create()">Save</button>
+                <button type="submit" class="btn btn-light" (click)="cancel()">Cancel</button>
+            </form>
+        </div>
+        <div class="col">
+            <h3>Detalle</h3>
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="categoryName"> Cuenta</label>
+                    <input name="categoryName" type="text" class="form-control" id="categoryName"
+                        placeholder="Introduce " [(ngModel)]="cuenta">
+                </div>
+                <label for="cursoControlSelect">Seleccione la solicitud</label>
+                <select name="nombreCurso" class="form-control" id="cursoControlSelect" [(ngModel)]="maticulaId"
+                    (click)="getSolicitudes()">
+                    <option *ngFor="let item of solicitudes" [value]="item.consultaMatriculaId">{{
+                            item.periodo + "-" + item.anio
+                          }}</option>
+                </select>
+                <label for="cursoControlSelect">Seleccione el nombre del curso</label>
+                <select name="nombreCurso" class="form-control" id="cursoControlSelect" [(ngModel)]="curso">
+                    <option *ngFor="let item of cursos" [value]="item.cursoId">{{
+                            item.nombre
+                          }}</option>
+                </select>
+                <div class="form-group">
+                    <label for="categoryName"> Dia</label>
+                    <input name="categoryName" type="text" class="form-control" id="categoryName"
+                        placeholder="Introduce " [(ngModel)]="dia">
+                </div>
+                <button type="submit" class="btn btn-primary" (click)="createDetalle()">Save</button>
+                <button type="submit" class="btn btn-light" (click)="cancel()">Cancel</button>
+                <br />
+                <br/>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Curso</th>
+                            <th scope="col">Dia</th>
+                            <th scope="col">Activity</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <tr *ngFor="let item of detalles">
+                                <th>{{item.alumnoId}}</th>
+                                <td>{{item.cursoId}}</td>
+                                <td>{{item.dia}}</td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-info"
+                                    >
+                                        <i class="fas fa-pencil-alt"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-danger"
+                                    >
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </div>
+                            </td>
+                            </tr>
+                        </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</div>
