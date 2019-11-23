@@ -1,0 +1,55 @@
+<app-navigationuser></app-navigationuser>
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label for="categoryName"> Matricula Id</label>
+                <input name="categoryName" type="text" class="form-control" id="categoryName" placeholder="Introduce "
+                    [(ngModel)]="matriculaId">
+            </div>
+            <button (click)="getDetalles()" type="button" class="btn btn-primary">ver</button>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label for="cuenta"> Cuenta Alumno</label>
+                <input name="cuenta" type="text" class="form-control" id="cuenta" placeholder="Introduce "
+                    [(ngModel)]="cuenta">
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="container">
+    <div class="row">
+        <table class="table table-bordered">
+            <thead>
+                <tr class="table-primary">
+                    <th scope="col">Alumno</th>
+                    <th scope="col">Curso</th>
+                    <th scope="col">dia</th>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of detalles">
+                    <th>{{item.alumnoId}}</th>
+                    <td>{{item.cursoId}}</td>
+                    <td>{{item.dia}}</td>
+                    <td>{{item.hora}}</td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-info">
+                                <i class="fas fa-pencil-alt"></i>
+                            </button>
+                            <button type="button" class="btn btn-danger" (click)="deteleDetalle(item.consultaMatriculaDetalleId)">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

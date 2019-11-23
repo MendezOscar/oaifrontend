@@ -4,4 +4,5 @@ export class ConsultaMatriculaDetalle {
     alumnoId: number;
     cursoId: number;
     dia: number;
+    hora: string;
 }

@@ -3,6 +3,19 @@
     <div class="container">
         <h1 class="display-4">Bienvenido a Oferta Academica Inteligente</h1>
         <p class="lead">Gestiona tu oferta academica deseada</p>
-        <a class="btn btn-primary btn-lg" routerLink="ofertauser" role="button">Solicitar</a>
+        <a class="btn btn-primary btn-lg" href="solicitarofertauser" role="button">Solicitar</a>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div *ngFor="let item of consultaMatricula" class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{item.anio + '-' + item.periodo }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Solicitud matricula</h6>
+                <p class="card-text">Solicitud de clases efectuada para el periodo y año anteriormente
+                    descrito.</p>
+                <button type="button" (click)="verDetalle(item.consultaMatriculaId)" class="btn btn-primary">Ver detalle</button>
+            </div>
+        </div>
     </div>
 </div>

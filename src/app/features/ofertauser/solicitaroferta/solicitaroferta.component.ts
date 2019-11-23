@@ -25,6 +25,7 @@ export class SolicitarofertaComponent implements OnInit {
   curso: string;
   dia: string;
   cuenta: string;
+  hora: string;
   maticulaId: string;
 
   constructor(private consultaMatriculaService: ConsultamatriculaService, private router: Router,
@@ -66,16 +67,18 @@ export class SolicitarofertaComponent implements OnInit {
     this.matriculaDetalle.cursoId = parseInt(this.curso);
     // tslint:disable-next-line: radix
     this.matriculaDetalle.dia = parseInt(this.dia);
+    this.matriculaDetalle.hora = this.hora;
     if (this.matriculaDetalle) {
       this.solicitudMatriculaDetalle.createConsultaMatriculaDetalle(this.matriculaDetalle)
       .subscribe(() => {
-        this.getDetalles();
+        this.getDetalles(this.maticulaId, this.cuenta);
       });
     }
   }
 
-  getDetalles() {
-    this.solicitudMatriculaDetalle.getConsultaMatriculaDetalle().subscribe(data => {
+  getDetalles(consultaMatricula: string, cuenta: string) {
+    this.solicitudMatriculaDetalle.getConsultaMatriculaDetalleByMatricula(consultaMatricula, cuenta)
+    .subscribe(data => {
       this.detalles = data;
     });
   }

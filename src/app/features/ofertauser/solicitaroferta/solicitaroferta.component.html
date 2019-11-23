@@ -1,8 +1,10 @@
 <app-navigationuser></app-navigationuser>
+<br/>
+<br/>
 <div class="container">
     <div class="row">
         <div class="col">
-            <h3>Solicitar oferta</h3>
+            <h5>Solicitar oferta</h5>
             <form>
                 <div class="form-group">
                     <label for="categoryName">Periodo</label>
@@ -16,10 +18,42 @@
                 </div>
                 <button type="submit" class="btn btn-primary" (click)="create()">Save</button>
                 <button type="submit" class="btn btn-light" (click)="cancel()">Cancel</button>
+                <br />
+                <br />
+                <h5>Tabla Detalle</h5>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Alumno</th>
+                            <th scope="col">Curso</th>
+                            <th scope="col">dia</th>
+                            <th scope="col">Hora</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of detalles">
+                            <th>{{item.alumnoId}}</th>
+                            <td>{{item.cursoId}}</td>
+                            <td>{{item.dia}}</td>
+                            <td>{{item.hora}}</td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-info">
+                                        <i class="fas fa-pencil-alt"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-danger">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </form>
         </div>
         <div class="col">
-            <h3>Detalle</h3>
+            <h5>Detalle</h5>
             <div class="form-group">
                 <div class="form-group">
                     <label for="categoryName"> Cuenta</label>
@@ -44,39 +78,13 @@
                     <input name="categoryName" type="text" class="form-control" id="categoryName"
                         placeholder="Introduce " [(ngModel)]="dia">
                 </div>
+                <div class="form-group">
+                    <label for="hora"> Hora</label>
+                    <input name="hora" type="text" class="form-control" id="hora" placeholder="Introduce "
+                        [(ngModel)]="hora">
+                </div>
                 <button type="submit" class="btn btn-primary" (click)="createDetalle()">Save</button>
                 <button type="submit" class="btn btn-light" (click)="cancel()">Cancel</button>
-                <br />
-                <br/>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">Curso</th>
-                            <th scope="col">Dia</th>
-                            <th scope="col">Activity</th>
-                            <th scope="col">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                            <tr *ngFor="let item of detalles">
-                                <th>{{item.alumnoId}}</th>
-                                <td>{{item.cursoId}}</td>
-                                <td>{{item.dia}}</td>
-                            <td>
-                                <div class="btn-group" role="group">
-                                    <button type="button" class="btn btn-info"
-                                    >
-                                        <i class="fas fa-pencil-alt"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger"
-                                    >
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
-                                </div>
-                            </td>
-                            </tr>
-                        </tbody>
-                </table>
             </div>
         </div>
 

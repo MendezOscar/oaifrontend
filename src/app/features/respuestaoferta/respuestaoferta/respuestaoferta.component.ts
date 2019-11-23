@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ConsultamatriculaService } from 'src/app/services/consultamatricula/consultamatricula.service';
+import { ConsultamatriculadetalleService } from 'src/app/services/consultamatriculadetalle/consultamatriculadetalle.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ConsultaMatriculaDetalle } from 'src/app/models/ConsultaMatriculaDetalle';
 
 @Component({
   selector: 'app-respuestaoferta',
@@ -7,9 +11,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RespuestaofertaComponent implements OnInit {
 
-  constructor() { }
-
   ngOnInit() {
   }
-
 }

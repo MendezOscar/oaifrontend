@@ -7,6 +7,7 @@ import { OfertauserComponent } from './features/ofertauser/ofertauser/ofertauser
 import { SolicitarofertaComponent } from './features/ofertauser/solicitaroferta/solicitaroferta.component';
 import { EditarofertaComponent } from './features/ofertauser/editaroferta/editaroferta.component';
 import { RespuestaofertaComponent } from './features/respuestaoferta/respuestaoferta/respuestaoferta.component';
+import { VerdetalleComponent } from './features/ofertauser/verdetalle/verdetalle.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: 'ofertauser', component: OfertauserComponent},
   {path: 'solicitarofertauser', component: SolicitarofertaComponent},
   {path: 'editarofertauser/:id', component: EditarofertaComponent},
-  {path: 'ofertadetalle', component: RespuestaofertaComponent}
+  {path: 'respuesta', component: RespuestaofertaComponent},
+  {path: 'verdetalle/:id', component: VerdetalleComponent}
 ];
 
 @NgModule({
