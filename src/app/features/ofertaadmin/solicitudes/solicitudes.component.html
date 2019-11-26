@@ -1,0 +1,44 @@
+<app-navigationadmin></app-navigationadmin>
+<br/>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label for="perido">Periodo</label>
+                <input name="perido" type="text" class="form-control" id="perido" placeholder="Introduce "
+                    [(ngModel)]="periodo">
+            </div>
+            <button (click)="getOferta()" type="button" class="btn btn-primary">Ver</button>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label for="anio">Año</label>
+                <input name="anio" type="text" class="form-control" id="anio" placeholder="Introduce "
+                    [(ngModel)]="anio">
+            </div>
+        </div>
+    </div>
+</div>
+<br/>
+<div class="container">
+    <div class="row">
+        <table class="table table-bordered">
+            <thead>
+                <tr class="table-primary">
+                    <th scope="col">Alumno</th>
+                    <th scope="col">Curso</th>
+                    <th scope="col">dia</th>
+                    <th scope="col">Hora</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of ofertaDetalle">
+                    <th>{{item.alumnoId}}</th>
+                    <td>{{item.cursoId}}</td>
+                    <td>{{item.dia}}</td>
+                    <td>{{item.hora}}</td>  
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

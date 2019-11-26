@@ -44,12 +44,14 @@ export class LoginComponent implements OnInit {
     if (this.tipos[0].nombre === 'Coordinador' && this.tipos[0].checked === true) {
       this.getCoordinador();
       if (this.coordinador) {
+        localStorage.setItem('user', JSON.stringify(this.coordinador));
         this.router.navigate(['homeadmin']);
       }
     } else {
       this.getAlumno();
       if (this.alumno) {
-        this.router.navigate(['homeuser']);
+        localStorage.setItem('user', this.alumno.cuenta);
+        this.router.navigate(['homeuser', this.cuenta]);
       }
     }
   }

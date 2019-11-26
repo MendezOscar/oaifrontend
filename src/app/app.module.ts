@@ -15,6 +15,7 @@ import { SolicitarofertaComponent } from './features/ofertauser/solicitaroferta/
 import { EditarofertaComponent } from './features/ofertauser/editaroferta/editaroferta.component';
 import { RespuestaofertaComponent } from './features/respuestaoferta/respuestaoferta/respuestaoferta.component';
 import { VerdetalleComponent } from './features/ofertauser/verdetalle/verdetalle.component';
+import { SolicitudesComponent } from './features/ofertaadmin/solicitudes/solicitudes.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { VerdetalleComponent } from './features/ofertauser/verdetalle/verdetalle
     SolicitarofertaComponent,
     EditarofertaComponent,
     RespuestaofertaComponent,
-    VerdetalleComponent
+    VerdetalleComponent,
+    SolicitudesComponent
   ],
   imports: [
     BrowserModule,

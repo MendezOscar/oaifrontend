@@ -21,6 +21,7 @@ export class SolicitarofertaComponent implements OnInit {
   periodo: string;
   anio: string;
   estado: string;
+  cuentaAlumno: string;
 
   curso: string;
   dia: string;
@@ -50,6 +51,7 @@ export class SolicitarofertaComponent implements OnInit {
     // tslint:disable-next-line: radix
     this.consultaMatricula.anio = parseInt(this.anio);
     this.consultaMatricula.estado = 0;
+    this.consultaMatricula.cuentaalumno = this.cuentaAlumno;
 
     if (this.consultaMatricula) {
       this.consultaMatriculaService.createConsultaMatricula(this.consultaMatricula).subscribe (() => {

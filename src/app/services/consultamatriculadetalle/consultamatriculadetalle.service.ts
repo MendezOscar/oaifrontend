@@ -15,6 +15,11 @@ export class ConsultamatriculadetalleService {
     return this.http.get<ConsultaMatriculaDetalle[]>(this.apiUrl);
   }
 
+  getConsultaMatriculaDetalleByMatriculaByMatriculaId(id: number) {
+    // tslint:disable-next-line: radix
+    return this.http.get<ConsultaMatriculaDetalle[]>(this.apiUrl + '/bymatricula/' + id);
+  }
+
   getConsultaMatriculaDetalleByMatricula(matricula: string, alumno: string) {
     // tslint:disable-next-line: radix
     return this.http.get<ConsultaMatriculaDetalle[]>(this.apiUrl + '/' + parseInt(matricula) + '/' + parseInt(alumno));

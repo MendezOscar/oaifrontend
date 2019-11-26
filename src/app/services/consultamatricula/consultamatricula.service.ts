@@ -15,6 +15,14 @@ export class ConsultamatriculaService {
     return this.http.get<ConsultaMatricula[]>(this.apiUrl);
   }
 
+  getConsultaMatriculaByAlumno(cuenta: string) {
+    return this.http.get<ConsultaMatricula[]>(this.apiUrl + '/bycuenta/' + cuenta);
+  }
+
+  getConsultaMatriculas(periodo: number, anio: number) {
+    return this.http.get<ConsultaMatricula>(this.apiUrl + '/' + periodo + '/' + anio);
+  }
+
   getConsultaMatriculaById(id: number ) {
     return this.http.get<ConsultaMatricula>(this.apiUrl + '/' + id);
   }
@@ -28,6 +36,6 @@ export class ConsultamatriculaService {
   }
 
   editConsultaMatricula(obj: ConsultaMatricula) {
-    return this.http.put<ConsultaMatricula>(this.apiUrl + '/' + obj.consultaMatriculaId, obj);
+    return this.http.put<ConsultaMatricula>(this.apiUrl + '/' + obj.consultamatriculaId, obj);
   }
 }

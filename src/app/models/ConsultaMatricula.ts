@@ -1,6 +1,7 @@
 export class ConsultaMatricula {
-    consultaMatriculaId: number;
+    consultamatriculaId: number;
     periodo: number;
     anio: number;
     estado: number;
+    cuentaalumno: string;
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navigationuser',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navigationuser.component.css']
 })
 export class NavigationuserComponent implements OnInit {
-
-  constructor() { }
+  cuenta: string;
+  ref: string;
+  constructor(private router: Router) { }
 
   ngOnInit() {
+    this.cuenta = localStorage.getItem('user');
+    console.log(localStorage.getItem('user'));
+  }
+
+  goHomeUser() {
+    this.router.navigate(['homeuser', this.cuenta]);
   }
 
 }

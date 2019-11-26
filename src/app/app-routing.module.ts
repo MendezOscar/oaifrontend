@@ -8,17 +8,19 @@ import { SolicitarofertaComponent } from './features/ofertauser/solicitaroferta/
 import { EditarofertaComponent } from './features/ofertauser/editaroferta/editaroferta.component';
 import { RespuestaofertaComponent } from './features/respuestaoferta/respuestaoferta/respuestaoferta.component';
 import { VerdetalleComponent } from './features/ofertauser/verdetalle/verdetalle.component';
+import { SolicitudesComponent } from './features/ofertaadmin/solicitudes/solicitudes.component';
 
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'homeadmin', component: HomeAdminComponent},
-  {path: 'homeuser', component: HomeUserComponent},
+  {path: 'homeuser/:cuenta', component: HomeUserComponent},
   {path: 'ofertauser', component: OfertauserComponent},
   {path: 'solicitarofertauser', component: SolicitarofertaComponent},
   {path: 'editarofertauser/:id', component: EditarofertaComponent},
   {path: 'respuesta', component: RespuestaofertaComponent},
-  {path: 'verdetalle/:id', component: VerdetalleComponent}
+  {path: 'verdetalle/:id', component: VerdetalleComponent},
+  {path: 'solicitudes', component: SolicitudesComponent}
 ];
 
 @NgModule({

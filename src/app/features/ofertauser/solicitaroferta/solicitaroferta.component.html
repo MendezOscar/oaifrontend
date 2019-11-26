@@ -16,6 +16,13 @@
                     <input name="categoryName" type="text" class="form-control" id="categoryName"
                         placeholder="Introduce " [(ngModel)]="anio">
                 </div>
+
+                <div class="form-group">
+                    <label for="cuenta"> Cuenta</label>
+                    <input name="cuenta" type="text" class="form-control" id="cuenta"
+                        placeholder="Introduce " [(ngModel)]="cuentaAlumno">
+                </div>
+
                 <button type="submit" class="btn btn-primary" (click)="create()">Save</button>
                 <button type="submit" class="btn btn-light" (click)="cancel()">Cancel</button>
                 <br />
@@ -63,7 +70,7 @@
                 <label for="cursoControlSelect">Seleccione la solicitud</label>
                 <select name="nombreCurso" class="form-control" id="cursoControlSelect" [(ngModel)]="maticulaId"
                     (click)="getSolicitudes()">
-                    <option *ngFor="let item of solicitudes" [value]="item.consultaMatriculaId">{{
+                    <option *ngFor="let item of solicitudes" [value]="item.consultamatriculaId">{{
                             item.periodo + "-" + item.anio
                           }}</option>
                 </select>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ConsultamatriculaService } from 'src/app/services/consultamatricula/consultamatricula.service';
 import { ConsultaMatricula } from 'src/app/models/ConsultaMatricula';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home-user',
@@ -10,15 +10,20 @@ import { Router } from '@angular/router';
 })
 export class HomeUserComponent implements OnInit {
   consultaMatricula: ConsultaMatricula[];
+  cuenta: string;
 
-  constructor(private consultaMatriculaService: ConsultamatriculaService, private router: Router) { }
+  constructor(private consultaMatriculaService: ConsultamatriculaService, private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getSolicitudes();
+    // tslint:disable-next-line: radix
+    const cuenta = this.route.snapshot.paramMap.get('cuenta');
+    this.cuenta = cuenta;
+    this.getSolicitudes(cuenta);
   }
 
-  getSolicitudes() {
-    this.consultaMatriculaService.getConsultaMatricula().subscribe(data => {
+  getSolicitudes(cuenta: string) {
+    this.consultaMatriculaService.getConsultaMatriculaByAlumno(cuenta).subscribe(data => {
       this.consultaMatricula = data;
     });
   }
@@ -27,7 +32,7 @@ export class HomeUserComponent implements OnInit {
     const res = confirm('Are you sure delete this item?');
     if (res) {
       this.consultaMatriculaService.deleteConsultaMatricula(id).subscribe(() => {
-        this.getSolicitudes();
+        this.getSolicitudes(this.cuenta);
       });
     }
   }
