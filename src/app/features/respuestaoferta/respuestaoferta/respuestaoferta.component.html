@@ -1,37 +1,37 @@
 <app-navigationuser></app-navigationuser>
-<br/>
+<br />
 <div class="container">
     <div class="row">
-        <div class="col">
-            <div class="form-group">
-                <label for="perido">Periodo</label>
-                <input name="perido" type="text" class="form-control" id="perido" placeholder="Introduce "
-                    [(ngModel)]="perido">
-            </div>
-            <button type="button" class="btn btn-primary">Ver</button>
-        </div>
-        <div class="col">
-            <div class="form-group">
-                <label for="anio">Año</label>
-                <input name="anio" type="text" class="form-control" id="anio" placeholder="Introduce "
-                    [(ngModel)]="anio">
-            </div>
-        </div>
-    </div>
-</div>
-<br/>
-<div class="container">
-    <div class="row">
-        <table class="table table-bordered">
+        <br />
+        <h4>Oferta generada</h4>
+        <br />
+        <table class="table table-borderless    ">
             <thead>
-                <tr class="table-primary">
-                    <th scope="col">Seccion</th>
+                <tr>
+                    <th scope="col">Periodo</th>
+                    <th scope="col">Anio</th>
                     <th scope="col">Curso</th>
+                    <th scope="col">Hora Inicio</th>
+                    <th scope="col">Hora Final</th>
+                    <th scope="col">Dia</th>
                     <th scope="col">Aula</th>
-                    <th scope="col">Hora</th>
                     <th scope="col">Docente</th>
+                    <th scope="col">Matriculados</th>
                 </tr>
             </thead>
+            <tbody>
+                <tr *ngFor="let item of oferta">
+                    <th scope="row">{{item.periodo}}</th>
+                    <td>{{item.anio}}</td>
+                    <td>{{item.nombreCurso}}</td>
+                    <td>{{item.horaInicio | date: ' HH:mm:ss'}}</td>
+                    <td>{{item.horaFinal | date: ' HH:mm:ss'}}</td>
+                    <td>{{item.dia}}</td>
+                    <td>{{item.nombreAula}}</td>
+                    <td>{{item.nombreDocente}}</td>
+                    <td>{{item.cantidad}}</td>
+                </tr>
+            </tbody>
         </table>
     </div>
 </div>

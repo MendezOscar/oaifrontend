@@ -1,0 +1,78 @@
+<app-navigationadmin></app-navigationadmin>
+<div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="perido">Periodo</label>
+                    <input name="perido" type="text" class="form-control" id="perido" placeholder="Introduce "
+                        [(ngModel)]="periodo">
+                </div>
+                <div class="form-group">
+                        <label for="anio">Año</label>
+                        <input name="anio" type="text" class="form-control" id="anio" placeholder="Introduce "
+                            [(ngModel)]="anio">
+                    </div>
+                <button (click)="generar()" type="button" class="btn btn-primary">Ver</button>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="min">Minimo Alumnos</label>
+                    <input name="min" type="text" class="form-control" id="min" placeholder="Introduce "
+                        [(ngModel)]="min">
+                </div>
+                <div class="form-group">
+                        <label for="max">Maximo Alumnos</label>
+                        <input name="max" type="text" class="form-control" id="max" placeholder="Introduce "
+                            [(ngModel)]="max">
+                    </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+<div class="container">
+    <div class="row">
+        <br/>
+        <h4>Oferta generada</h4>
+        <br/>
+        <table class="table table-borderless    ">
+            <thead>
+                <tr>
+                    <th scope="col">Periodo</th>
+                    <th scope="col">Anio</th>
+                    <th scope="col">Curso</th>
+                    <th scope="col">Hora Inicio</th>
+                    <th scope="col">Hora Final</th>
+                    <th scope="col">Dia</th>
+                    <th scope="col">Aula</th>
+                    <th scope="col">Docente</th>
+                    <th scope="col">Matriculados</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of oferta">
+                    <th scope="row">{{item.periodo}}</th>
+                    <td>{{item.anio}}</td>
+                    <td>{{item.nombreCurso}}</td>
+                    <td>{{item.horaInicio | date: ' HH:mm:ss'}}</td>
+                    <td>{{item.horaFinal | date: ' HH:mm:ss'}}</td>
+                    <td>{{item.dia}}</td>
+                    <td>{{item.nombreAula}}</td>
+                    <td>{{item.nombreDocente}}</td>
+                    <td>{{item.cantidad}}</td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-success">
+                                <i class="fas fa-pencil-alt"></i>
+                            </button>
+                            <button type="button" class="btn btn-danger"
+                                >
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

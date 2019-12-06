@@ -13,7 +13,6 @@ export class NavigationuserComponent implements OnInit {
 
   ngOnInit() {
     this.cuenta = localStorage.getItem('user');
-    console.log(localStorage.getItem('user'));
   }
 
   goHomeUser() {

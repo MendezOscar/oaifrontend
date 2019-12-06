@@ -6,6 +6,8 @@ import { CursoService } from 'src/app/services/curso/curso.service';
 import { Curso } from 'src/app/models/Curso';
 import { ConsultaMatriculaDetalle } from 'src/app/models/ConsultaMatriculaDetalle';
 import { ConsultamatriculadetalleService } from 'src/app/services/consultamatriculadetalle/consultamatriculadetalle.service';
+import { Horario } from 'src/app/models/Horario';
+import { HorariosService } from 'src/app/services/horarios/horarios.service';
 
 @Component({
   selector: 'app-solicitaroferta',
@@ -22,6 +24,7 @@ export class SolicitarofertaComponent implements OnInit {
   anio: string;
   estado: string;
   cuentaAlumno: string;
+  horarios: Horario[];
 
   curso: string;
   dia: string;
@@ -31,11 +34,19 @@ export class SolicitarofertaComponent implements OnInit {
 
   constructor(private consultaMatriculaService: ConsultamatriculaService, private router: Router,
               private cursoService: CursoService,
-              private solicitudMatriculaDetalle: ConsultamatriculadetalleService) { }
+              private solicitudMatriculaDetalle: ConsultamatriculadetalleService,
+              private horarioService: HorariosService) { }
 
   ngOnInit() {
     this.getCusos();
     this.getSolicitudes();
+    this.getHorarios();
+  }
+
+  getHorarios() {
+    this.horarioService.getHorarios().subscribe (data => {
+      this.horarios = data;
+    });
   }
 
   getSolicitudes() {

@@ -1,6 +1,6 @@
 <app-navigationuser></app-navigationuser>
-<br/>
-<br/>
+<br />
+<br />
 <div class="container">
     <div class="row">
         <div class="col">
@@ -19,82 +19,90 @@
 
                 <div class="form-group">
                     <label for="cuenta"> Cuenta</label>
-                    <input name="cuenta" type="text" class="form-control" id="cuenta"
-                        placeholder="Introduce " [(ngModel)]="cuentaAlumno">
+                    <input name="cuenta" type="text" class="form-control" id="cuenta" placeholder="Introduce "
+                        [(ngModel)]="cuentaAlumno">
                 </div>
+                <br />
+                <br />
 
                 <button type="submit" class="btn btn-primary" (click)="create()">Save</button>
                 <button type="submit" class="btn btn-light" (click)="cancel()">Cancel</button>
-                <br />
-                <br />
-                <h5>Tabla Detalle</h5>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">Alumno</th>
-                            <th scope="col">Curso</th>
-                            <th scope="col">dia</th>
-                            <th scope="col">Hora</th>
-                            <th scope="col">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let item of detalles">
-                            <th>{{item.alumnoId}}</th>
-                            <td>{{item.cursoId}}</td>
-                            <td>{{item.dia}}</td>
-                            <td>{{item.hora}}</td>
-                            <td>
-                                <div class="btn-group" role="group">
-                                    <button type="button" class="btn btn-info">
-                                        <i class="fas fa-pencil-alt"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-danger">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
             </form>
         </div>
-        <div class="col">
-            <h5>Detalle</h5>
-            <div class="form-group">
-                <div class="form-group">
-                    <label for="categoryName"> Cuenta</label>
-                    <input name="categoryName" type="text" class="form-control" id="categoryName"
-                        placeholder="Introduce " [(ngModel)]="cuenta">
-                </div>
-                <label for="cursoControlSelect">Seleccione la solicitud</label>
-                <select name="nombreCurso" class="form-control" id="cursoControlSelect" [(ngModel)]="maticulaId"
-                    (click)="getSolicitudes()">
-                    <option *ngFor="let item of solicitudes" [value]="item.consultamatriculaId">{{
+        <br />
+        <br />
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h5>Detalle</h5>
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label for="categoryName"> Cuenta</label>
+                            <input name="categoryName" type="text" class="form-control" id="categoryName"
+                                placeholder="Introduce " [(ngModel)]="cuenta">
+                        </div>
+                        <label for="cursoControlSelect">Seleccione la solicitud</label>
+                        <select name="nombreCurso" class="form-control" id="cursoControlSelect" [(ngModel)]="maticulaId"
+                            (click)="getSolicitudes()">
+                            <option *ngFor="let item of solicitudes" [value]="item.consultamatriculaId">{{
                             item.periodo + "-" + item.anio
                           }}</option>
-                </select>
-                <label for="cursoControlSelect">Seleccione el nombre del curso</label>
-                <select name="nombreCurso" class="form-control" id="cursoControlSelect" [(ngModel)]="curso">
-                    <option *ngFor="let item of cursos" [value]="item.cursoId">{{
+                        </select>
+                        <label for="cursoControlSelect">Seleccione el nombre del curso</label>
+                        <select name="nombreCurso" class="form-control" id="cursoControlSelect" [(ngModel)]="curso">
+                            <option *ngFor="let item of cursos" [value]="item.cursoId">{{
                             item.nombre
                           }}</option>
-                </select>
-                <div class="form-group">
-                    <label for="categoryName"> Dia</label>
-                    <input name="categoryName" type="text" class="form-control" id="categoryName"
-                        placeholder="Introduce " [(ngModel)]="dia">
+                        </select>
+                        <div class="form-group">
+                            <label for="categoryName"> Dia</label>
+                            <input name="categoryName" type="text" class="form-control" id="categoryName"
+                                placeholder="Introduce " [(ngModel)]="dia">
+                        </div>
+                        <label for="cursoControlSelect">Seleccione el nombre del curso</label>
+                        <select name="nombreCurso" class="form-control" id="cursoControlSelect" [(ngModel)]="hora">
+                            <option *ngFor="let item of horarios" [value]="item.horariosId">
+                                {{ item.horaInicio |  date: ' HH:mm:ss'}} -
+                                {{item.horaFinal | date: ' HH:mm:ss'}}</option>
+                        </select>
+                        <br />
+                        <button type="submit" class="btn btn-primary" (click)="createDetalle()">Save</button>
+                        <button type="submit" class="btn btn-light" (click)="cancel()">Cancel</button>
+                        <br />
+                        <br />
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="hora"> Hora</label>
-                    <input name="hora" type="text" class="form-control" id="hora" placeholder="Introduce "
-                        [(ngModel)]="hora">
-                </div>
-                <button type="submit" class="btn btn-primary" (click)="createDetalle()">Save</button>
-                <button type="submit" class="btn btn-light" (click)="cancel()">Cancel</button>
             </div>
         </div>
-
-    </div>
-
-</div>
+        <br />
+        <br />
+        <h5>Tabla Detalle</h5>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Alumno</th>
+                    <th scope="col">Curso</th>
+                    <th scope="col">dia</th>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of detalles">
+                    <th>{{item.alumnoId}}</th>
+                    <td>{{item.cursoId}}</td>
+                    <td>{{item.dia}}</td>
+                    <td>{{item.hora}}</td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-info">
+                                <i class="fas fa-pencil-alt"></i>
+                            </button>
+                            <button type="button" class="btn btn-danger">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>

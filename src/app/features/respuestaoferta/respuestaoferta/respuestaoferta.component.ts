@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ConsultamatriculaService } from 'src/app/services/consultamatricula/consultamatricula.service';
-import { ConsultamatriculadetalleService } from 'src/app/services/consultamatriculadetalle/consultamatriculadetalle.service';
-import { Router, ActivatedRoute } from '@angular/router';
-import { ConsultaMatriculaDetalle } from 'src/app/models/ConsultaMatriculaDetalle';
 import { OfertaAcademicaDetalle } from 'src/app/models/OfertaAcademicaDetalle';
 import { OfertaacademicadetalleService } from 'src/app/services/ofertaacademicadetalle/ofertaacademicadetalle.service';
 import { OfertaacademicaService } from 'src/app/services/ofertaacademica/ofertaacademica.service';
 import { OfertaAcademica } from 'src/app/models/OfertaAcademica';
+import { OfertageneradaService } from 'src/app/services/ofertagenerada/ofertagenerada.service';
+import { Router } from '@angular/router';
+import { OfertaGenerada } from 'src/app/models/OfertaGenerada';
 
 @Component({
   selector: 'app-respuestaoferta',
@@ -14,31 +13,19 @@ import { OfertaAcademica } from 'src/app/models/OfertaAcademica';
   styleUrls: ['./respuestaoferta.component.css']
 })
 export class RespuestaofertaComponent implements OnInit {
-  perido: string;
-  anio: string;
-  ofertaAcademica: OfertaAcademica;
-  ofertaAcademicaDetalle: OfertaAcademicaDetalle[];
+  oferta: OfertaGenerada[];
 
-  constructor(private ofertaAcedemica: OfertaacademicaService,
-              private oferaAcademicaDetalle: OfertaacademicadetalleService) {
+  constructor(private ofertaGeneradaService: OfertageneradaService,
+              private router: Router) { }
 
-  }
 
   ngOnInit() {
+    this.getOfertaGenerada();
   }
 
-  getOfertaAcedimica() {
-    // tslint:disable-next-line: radix
-    this.ofertaAcedemica.getOfertaAcademicaByPeriodo(parseInt(this.perido), parseInt(this.anio))
-    .subscribe(data => {
-      this.ofertaAcademica = data;
-      this.getOfertaAcademicaDetalle(this.ofertaAcademica.ofertaId);
-    });
-  }
-
-  getOfertaAcademicaDetalle(id: number) {
-    this.oferaAcademicaDetalle.getOfertaAcademicaDetalle(id).subscribe(data => {
-      this.ofertaAcademicaDetalle = data;
+  getOfertaGenerada() {
+    this.ofertaGeneradaService.getOfertaAcademica().subscribe(data => {
+      this.oferta = data;
     });
   }
 }

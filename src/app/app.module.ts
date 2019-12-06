@@ -16,6 +16,8 @@ import { EditarofertaComponent } from './features/ofertauser/editaroferta/editar
 import { RespuestaofertaComponent } from './features/respuestaoferta/respuestaoferta/respuestaoferta.component';
 import { VerdetalleComponent } from './features/ofertauser/verdetalle/verdetalle.component';
 import { SolicitudesComponent } from './features/ofertaadmin/solicitudes/solicitudes.component';
+import { OfertageneradaComponent } from './features/ofertagenerada/ofertagenerada/ofertagenerada.component';
+import { AperturarComponent } from './features/ofertaadmin/aperturar/aperturar.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { SolicitudesComponent } from './features/ofertaadmin/solicitudes/solicit
     EditarofertaComponent,
     RespuestaofertaComponent,
     VerdetalleComponent,
-    SolicitudesComponent
+    SolicitudesComponent,
+    OfertageneradaComponent,
+    AperturarComponent
   ],
   imports: [
     BrowserModule,

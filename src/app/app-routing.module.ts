@@ -9,6 +9,8 @@ import { EditarofertaComponent } from './features/ofertauser/editaroferta/editar
 import { RespuestaofertaComponent } from './features/respuestaoferta/respuestaoferta/respuestaoferta.component';
 import { VerdetalleComponent } from './features/ofertauser/verdetalle/verdetalle.component';
 import { SolicitudesComponent } from './features/ofertaadmin/solicitudes/solicitudes.component';
+import { OfertaGenerada } from './models/OfertaGenerada';
+import { OfertageneradaComponent } from './features/ofertagenerada/ofertagenerada/ofertagenerada.component';
 
 
 const routes: Routes = [
@@ -20,7 +22,8 @@ const routes: Routes = [
   {path: 'editarofertauser/:id', component: EditarofertaComponent},
   {path: 'respuesta', component: RespuestaofertaComponent},
   {path: 'verdetalle/:id', component: VerdetalleComponent},
-  {path: 'solicitudes', component: SolicitudesComponent}
+  {path: 'solicitudes', component: SolicitudesComponent},
+  {path: 'ofertagenerada', component: OfertageneradaComponent}
 ];
 
 @NgModule({

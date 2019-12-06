@@ -26,6 +26,7 @@ export class SolicitudesComponent implements OnInit {
     this.consultaService.getConsultaMatriculas(parseInt(this.periodo), parseInt(this.anio))
     .subscribe(data => {
       this.oferta = data;
+      console.log(this.oferta);
       this.getSolicitudes(this.oferta.consultamatriculaId);
     });
   }

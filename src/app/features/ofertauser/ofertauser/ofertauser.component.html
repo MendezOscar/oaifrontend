@@ -18,21 +18,21 @@
             </thead>
             <tbody>
                 <tr *ngFor="let item of consultaMatricula">
-                    <th scope="row">{{item.consultaMatriculaId}}</th>
+                    <th scope="row">{{item.consultamatriculaId}}</th>
                     <td>{{item.periodo}}</td>
                     <td>{{item.anio}}</td>
                     <td>{{item.estado}}</td>
                     <td>
                         <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-success" (click)="editar(item.consultaMatriculaId)">
+                            <button type="button" class="btn btn-success" (click)="editar(item.consultamatriculaId)">
                                 <i class="fas fa-pencil-alt"></i>
                             </button>
                             <button type="button" class="btn btn-danger"
-                                (click)="deleteSolicitud(item.consultaMatriculaId)">
+                                (click)="deleteSolicitud(item.consultamatriculaId)">
                                 <i class="fas fa-trash-alt"></i>
                             </button>
                             <button type="button" class="btn btn-info"
-                                (click)="deleteSolicitud(item.consultaMatriculaId)">
+                                (click)="deleteSolicitud(item.consultamatriculaId)">
                                 <i class="fas fa-eye"></i>
                             </button>
                         </div>
